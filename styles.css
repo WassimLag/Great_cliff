@@ -1,0 +1,186 @@
+/* General page settings */
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Header background image styling */
+header {
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    position: relative;
+}
+
+body#home header {
+    background-image: url('images/cliff_ocean.jpg');
+}
+
+body#activities header {
+    background-image: url('images/cliff_rock.jpg');
+}
+
+body#contact header {
+    background-image: url('images/runfly.jpg');
+}
+
+/* Logo styling */
+.logo img {
+    width: 200px;
+    position: absolute;
+    top: 30px;
+    left: 50px;
+}
+
+/* Navigation styling */
+nav.main-menu {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+}
+
+nav.main-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav.main-menu ul li {
+    margin-left: 20px;
+}
+
+nav.main-menu ul li a {
+    text-decoration: none;
+    padding: 10px 20px;
+    color: white;
+    background-color: #8bc34a;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+nav.main-menu ul li a:hover {
+    background-color: #6fa136;
+}
+
+nav.main-menu ul li a.active {
+    background-color: #6fa136;
+}
+
+/* Main content styling */
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+main h2 {
+    color: #9ed034;
+}
+
+main p, main h3 {
+    color: black;
+}
+
+main h3 {
+    margin-top: 30px;
+}
+
+/* Partners section styling */
+#partners {
+    display: flex;
+    justify-content: space-around;
+    background-color: #3b8ac5;
+    padding: 20px 0;
+}
+
+#partners img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+/* Footer styling */
+footer {
+    background-color: #dff0c1;
+    padding: 20px;
+    text-align: center;
+}
+
+footer .social a {
+    margin: 0 10px;
+    color: #3b8ac5;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+footer .social a:hover {
+    color: #8bc34a;
+}
+
+/* Table styling for activities.html */
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+caption {
+    background-color: #4977D1;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+thead {
+    background-color: #9ed034;
+    color: white;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+tbody tr:first-child td {
+    font-weight: bold;
+}
+
+/* Contact form styling */
+form {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form .button {
+    background-color: #9ed034;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+form .button:hover {
+    background-color: #4977D1;
+}
