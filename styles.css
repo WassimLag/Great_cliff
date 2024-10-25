@@ -9,9 +9,13 @@ header {
     background-position: center;
     height: 400px;
     position: relative;
+    
 }
 
 body#home header {
+    background-image: url('images/cliff_ocean.jpg');
+}
+body#cliffs header {
     background-image: url('images/cliff_ocean.jpg');
 }
 
@@ -21,7 +25,7 @@ body#activities header {
 
 body#contact header {
     background-image: url('images/runfly.jpg');
-}
+} 
 
 /* Logo styling */
 .logo img {
@@ -32,10 +36,15 @@ body#contact header {
 }
 
 /* Navigation styling */
+/* Navigation styling */
 nav.main-menu {
     position: absolute;
-    top: 50px;
-    right: 50px;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px 20px;
+    border-radius: 10px;
 }
 
 nav.main-menu ul {
@@ -43,28 +52,31 @@ nav.main-menu ul {
     padding: 0;
     margin: 0;
     display: flex;
+    justify-content: center;
 }
 
 nav.main-menu ul li {
-    margin-left: 20px;
+    margin: 0 15px;
 }
 
 nav.main-menu ul li a {
     text-decoration: none;
-    padding: 10px 20px;
-    color: white;
-    background-color: #8bc34a;
-    border-radius: 5px;
+    padding: 15px 20px;
+    color: #3b8ac5;
     font-weight: bold;
     text-transform: uppercase;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav.main-menu ul li a.active {
+    background-color: #9ed034;
+    color: white;
+    border-radius: 5px;
 }
 
 nav.main-menu ul li a:hover {
     background-color: #6fa136;
-}
-
-nav.main-menu ul li a.active {
-    background-color: #6fa136;
+    color: white;
 }
 
 /* Main content styling */
@@ -183,4 +195,29 @@ form .button {
 
 form .button:hover {
     background-color: #4977D1;
+}
+
+/* Cliff gallery styling */
+.cliff-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.cliff-item {
+    width: 45%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.cliff-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.cliff-item h2 {
+    color: #3b8ac5;
+    margin-top: 10px;
 }
