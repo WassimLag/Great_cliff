@@ -1,36 +1,61 @@
+let generatedCode = '';
+let codeInput, submitButton, getCode, btnValue;
+
+function disableButton(isDisabled) {
+    submitButton.disabled = isDisabled;
+
+    // Change button appearance based on disabled state
+    if (isDisabled) {
+        submitButton.style.backgroundColor = "grey";
+        submitButton.style.cursor = "not-allowed";
+        submitButton.style.opacity = "0.7";
+    } else {
+        submitButton.style.backgroundColor = "";
+        submitButton.style.cursor = "pointer";
+        submitButton.style.opacity = "1";
+    }
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     // Generate random code
-    function generateRandomCode() {
-        let generatedCode = '';
-        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    generatedCode = generateRandomCode();
+    codeInput = document.getElementById("code-input");
+    submitButton = document.getElementById("submit-button");
 
-        for (let i = 0; i < 8; i++) {
-            const randomIndex = Math.floor(Math.random() * characters.length);
-            generatedCode += characters[randomIndex];
-        }
-
-        return generatedCode;
-    }
-
-    // Display the generated code
     const codeElement = document.getElementById("generated-code");
-    const generatedCode = generateRandomCode();
     codeElement.textContent = generatedCode;
 
     // Disable the submit button initially
-    const submitButton = document.getElementById("submit-button");
-    submitButton.disabled = true;
-    submitButton.style.backgroundColor = "grey";
+    disableButton(true);
 
-    // Enable submit button when the correct code is entered
-    const codeInput = document.getElementById("code-input");
+    // Add event listener to evaluate code input
     codeInput.addEventListener("input", function () {
-        if (codeInput.value === generatedCode) {
-            submitButton.disabled = false;
-            submitButton.style.backgroundColor = "";
-        } else {
-            submitButton.disabled = true;
-            submitButton.style.backgroundColor = "grey";
-        }
+        evaluateCode();
     });
 });
+
+// Generate random code function
+function generateRandomCode() {
+    let generatedCode = '';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+    for (let i = 0; i < 8; i++) {
+        const randomIndex = Math.floor(Math.random() * characters.length);
+        generatedCode += characters[randomIndex];
+    }
+
+    return generatedCode;
+}
+
+// Evaluate the code input function
+function evaluateCode() {
+    getCode = codeInput.value.trim();
+    const cleanedGeneratedCode = generatedCode.trim();
+
+    // If the entered code matches the generated code, enable the submit button
+    if (getCode === cleanedGeneratedCode) {
+        disableButton(false);
+    } else {
+        disableButton(true);
+    }
+}
