@@ -37,7 +37,7 @@
             <p>Located within a 100-mile radius from Irvine, California, they can be reached by roads easily. The closest cliff to Irvine is West Cliff, which is the most popular and most visited.</p>
         </main>
 
-        <section>
+        <!-- <section>
             <ul id="partners">
                 <li><img src="images/partner-bustour.png" alt="Partner 1"></li>
                 <li><img src="images/partner-rentalbike.png" alt="Partner 2"></li>
@@ -46,7 +46,7 @@
                 <li><img src="images/partner-campingadv.png" alt="Partner 5"></li>
                 <li><img src="images/partner-collegetours.png" alt="Partner 6"></li>
             </ul>
-        </section>
+        </section> -->
 
         <footer>
             <div class="copy">
@@ -62,35 +62,72 @@
     </div>
 
     
-    <script >
-
-function currentTime() {
-            const date = new Date();
-            let hours = date.getHours();
-            let minutes = date.getMinutes();
-            let seconds = date.getSeconds();
-            let ampm = hours >= 12 ? 'PM' : 'AM';
-
-            // Convert 24-hour format to 12-hour format
-            hours = hours % 12;
-            hours = hours ? hours : 12; // The hour '0' should be '12'
-
-            // Add leading zero to minutes and seconds if they are less than 10
-            minutes = minutes < 10 ? '0' + minutes : minutes;
-            seconds = seconds < 10 ? '0' + seconds : seconds;
-
-            // Get time zone information
-            const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-
-            // Assemble the time string
-            const timeString = `${hours}:${minutes}:${seconds} ${ampm} - ${timeZone}`;
-
-            // Display the time in the clock element
-            document.getElementById('clock').innerText = timeString;
-        }
-
-        // Call the function every second
-        setInterval(currentTime, 1000);
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Clock Functionality
+            function currentTime() {
+                const date = new Date();
+                let hours = date.getHours();
+                let minutes = date.getMinutes();
+                let seconds = date.getSeconds();
+                let ampm = hours >= 12 ? 'PM' : 'AM';
+    
+                // Convert 24-hour format to 12-hour format
+                hours = hours % 12;
+                hours = hours ? hours : 12; // The hour '0' should be '12'
+    
+                // Add leading zero to minutes and seconds if they are less than 10
+                minutes = minutes < 10 ? '0' + minutes : minutes;
+                seconds = seconds < 10 ? '0' + seconds : seconds;
+    
+                // Get time zone information
+                const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    
+                // Assemble the time string
+                const timeString = `${hours}:${minutes}:${seconds} ${ampm} - ${timeZone}`;
+    
+                // Display the time in the clock element
+                document.getElementById('clock').innerText = timeString;
+            }
+    
+            // Call the clock function every second
+            setInterval(currentTime, 1000);
+    
+            // Partners Section Functionality
+            // Create partners section
+            const partnersSection = document.createElement("section");
+            const partnersList = document.createElement("ul");
+            partnersList.id = "partners";
+    
+            // Partners data
+            const partners = [
+                { src: "images/partner-bustour.png", alt: "Partner 1" },
+                { src: "images/partner-rentalbike.png", alt: "Partner 2" },
+                { src: "images/partner-tourgroup.png", alt: "Partner 3" },
+                { src: "images/partner-cabinrental.png", alt: "Partner 4" },
+                { src: "images/partner-campingadv.png", alt: "Partner 5" },
+                { src: "images/partner-collegetours.png", alt: "Partner 6" }
+            ];
+    
+            // Loop through partners and create list items
+            partners.forEach(function(partner) {
+                const listItem = document.createElement("li");
+                const img = document.createElement("img");
+                img.src = partner.src;
+                img.alt = partner.alt;
+                listItem.appendChild(img);
+                partnersList.appendChild(listItem);
+            });
+    
+            // Append partners list to the section
+            partnersSection.appendChild(partnersList);
+    
+            // Append the section before the footer
+            const container = document.querySelector(".container");
+            const footer = document.querySelector("footer");
+            container.insertBefore(partnersSection, footer);
+        });
     </script>
+    
 </body>
 </html>
